@@ -1,0 +1,16 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Final Project",
+    "section": "",
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\nlibrary(readxl)\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.2     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.0\n✔ ggplot2   3.4.2     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.1     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(writexl)\nlibrary(stringr)\nlibrary(rstanarm)\n\nLoading required package: Rcpp\nThis is rstanarm version 2.21.4\n- See https://mc-stan.org/rstanarm/articles/priors for changes to default priors!\n- Default priors may change, so it's safest to specify priors, even if equivalent to the defaults.\n- For execution on a local, multicore CPU with excess RAM we recommend calling\n  options(mc.cores = parallel::detectCores())\n\n\n\nprem &lt;- read_excel(\"EPL_Payroll.xlsx\")\n\n\nx &lt;- prem |&gt;\n  select(\"Season\", \"Rk\", \"Squad\", \"Annual Wages\", \"Standing\") |&gt;\n  mutate(annual = str_extract(`Annual Wages`, \"\\\\$[0-9,]+\")) |&gt;\n  mutate(annual = as.numeric(gsub(\"[$,]\", \"\", annual))) |&gt;\n  select(-`Annual Wages`)\n\n\nx\n\n# A tibble: 200 × 5\n   Season    Rk Squad          Standing    annual\n    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;             &lt;dbl&gt;     &lt;dbl&gt;\n 1   2022     6 Arsenal               2 129210591\n 2   2022     7 Aston Villa           7 127888743\n 3   2022    18 Bournemouth          15  48842265\n 4   2022    20 Brentford             9  40845084\n 5   2022    19 Brighton              6  48776174\n 6   2022     3 Chelsea              12 241567629\n 7   2022    12 Crystal Palace       11  84928703\n 8   2022     8 Everton              17 107796661\n 9   2022    13 Fulham               10  69066531\n10   2022    17 Leeds United         19  62754708\n# ℹ 190 more rows\n\n\n\nfit_1 &lt;- stan_glm(Standing ~ Rk,\n                  data = x,\n                  family = gaussian,\n                  refresh = 0)\n\n\nfit_1\n\nstan_glm\n family:       gaussian [identity]\n formula:      Standing ~ Rk\n observations: 200\n predictors:   2\n------\n            Median MAD_SD\n(Intercept) 3.3    0.6   \nRk          0.7    0.1   \n\nAuxiliary parameter(s):\n      Median MAD_SD\nsigma 4.2    0.2   \n\n------\n* For help interpreting the printed output see ?print.stanreg\n* For info on the priors used see ?prior_summary.stanreg"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
+  }
+]

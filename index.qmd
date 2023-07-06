@@ -1,5 +1,8 @@
 ---
 title: "Final Project"
+execute: 
+  echoe: false
+  message: false
 ---
 
 This is a Quarto website.
@@ -41,5 +44,17 @@ fit_1 <- stan_glm(Standing ~ Rk,
 
 ```{r}
 fit_1
+```
+```{r}
+x |>
+  ggplot(aes(x = Rk, y = Standing)) +
+  geom_jitter(alpha = 0.5) 
+```
+
+```{r}
+x |>
+  summarise(.by = Season, total = sum(annual)) |>
+  ggplot(aes(x = Season, y = total)) +
+  geom_point()
 ```
 
