@@ -48,7 +48,10 @@ fit_1
 ```{r}
 x |>
   ggplot(aes(x = Rk, y = Standing)) +
-  geom_jitter(alpha = 0.5) 
+  geom_jitter(alpha = 0.5) +
+  scale_x_reverse() +
+  scale_y_reverse() +
+  geom_smooth(method = "lm", se = FALSE)
 ```
 
 ```{r}
