@@ -51,13 +51,23 @@ x |>
   geom_jitter(alpha = 0.5) +
   scale_x_reverse() +
   scale_y_reverse() +
-  geom_smooth(method = "lm", se = FALSE)
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(title = "Payroll Rank vs. Season Standing in the EPL",
+       subtitle = "There is a positive correlation between the two",
+       x = "Payroll Rank",
+       y = "Season Standing")
 ```
 
 ```{r}
 x |>
   summarise(.by = Season, total = sum(annual)) |>
   ggplot(aes(x = Season, y = total)) +
-  geom_point()
+  geom_point() +
+  geom_smooth(se = FALSE, method = "lm") +
+  labs(title = "Total Amount of Money Spent Across Seasons in EPL",
+       subtitle = "The league has steadily spent more money on players",
+       y= "Total Paid") +
+  scale_y_continuous(labels = scales::dollar_format())
+  scale_x_continuous(breaks = seq(2013, 2022, by = 1))
 ```
 

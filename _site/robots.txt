@@ -1,1 +1,1 @@
-Sitemap: https://5b0f1474-22c5-42e2-b793-cb893611b216.netlify.app/sitemap.xml
+Sitemap: https://chodani.quarto.pub/final-project/sitemap.xml
