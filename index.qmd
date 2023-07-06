@@ -1,0 +1,45 @@
+---
+title: "Final Project"
+---
+
+This is a Quarto website.
+
+To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+
+```{r}
+library(readxl)
+library(tidyverse)
+library(writexl)
+library(stringr)
+library(rstanarm)
+```
+
+```{r}
+prem <- read_excel("EPL_Payroll.xlsx")
+```
+
+```{r}
+x <- prem |>
+  select("Season", "Rk", "Squad", "Annual Wages", "Standing") |>
+  mutate(annual = str_extract(`Annual Wages`, "\\$[0-9,]+")) |>
+  mutate(annual = as.numeric(gsub("[$,]", "", annual))) |>
+  select(-`Annual Wages`)
+
+```
+
+```{r}
+x
+```
+
+
+```{r}
+fit_1 <- stan_glm(Standing ~ Rk,
+                  data = x,
+                  family = gaussian,
+                  refresh = 0)
+```
+
+```{r}
+fit_1
+```
+
