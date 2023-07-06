@@ -40,11 +40,30 @@ fit_1 <- stan_glm(Standing ~ Rk,
                   data = x,
                   family = gaussian,
                   refresh = 0)
+
+fit_2 <- stan_glm(Standing ~ annual,
+                  data = x,
+                  family = gaussian,
+                  refresh = 0)
+
+fit_3 <- stan_glm(Standing ~ Rk + annual,
+                  data = x,
+                  family = gaussian,
+                  refresh = 0)
+
 ```
 
 ```{r}
 fit_1
+fit_2
+fit_3
 ```
+```{r}
+loo(fit_1)
+loo_compare(loo(fit_1), loo(fit_2), loo(fit_3))
+```
+
+
 ```{r}
 newobs <- tibble(Rk = 1:20)
 
