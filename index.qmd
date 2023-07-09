@@ -48,7 +48,6 @@ fit_1
 ```
 ```{r}
 loo(fit_1)
-loo(fit_2)
 ```
 
 

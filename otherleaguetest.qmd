@@ -147,3 +147,18 @@ c |>
   ggplotly(tooltip = "text")
 ```
 
+```{r}
+differential <- top5 |>
+  select(-c("# Pl", "Weekly Wages", "% Estimated", "Squad (again)")) |>
+  mutate(annual = str_extract(`Annual Wages`, "\\$[0-9,]+")) |>
+  mutate(annual = as.numeric(gsub("[$,]", "", annual))) |>
+  select(-`Annual Wages`) |>
+  mutate(diff = Rk - Standing) |>
+  summarise(.by = Squad, total = sum(diff), years = n()) 
+```
+
+```{r}
+differential |>
+  arrange(desc(total))
+```
+

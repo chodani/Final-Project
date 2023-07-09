@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.361">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Final Project - bundesliga</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="site_libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+<script src="site_libs/plotly-binding-4.10.2/plotly.js"></script>
+<script src="site_libs/typedarray-0.1/typedarray.min.js"></script>
+<script src="site_libs/jquery-3.5.1/jquery.min.js"></script>
+<link href="site_libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
+<script src="site_libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<link href="site_libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="site_libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Final Project</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./otherleaguetest.html" rel="" target="" aria-current="page">
+ <span class="menu-text">Other</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">bundesliga</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.2     ✔ readr     2.1.4
+✔ forcats   1.0.0     ✔ stringr   1.5.0
+✔ ggplot2   3.4.2     ✔ tibble    3.2.1
+✔ lubridate 1.9.2     ✔ tidyr     1.3.0
+✔ purrr     1.0.1     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(writexl)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstanarm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: Rcpp
+This is rstanarm version 2.21.4
+- See https://mc-stan.org/rstanarm/articles/priors for changes to default priors!
+- Default priors may change, so it's safest to specify priors, even if equivalent to the defaults.
+- For execution on a local, multicore CPU with excess RAM we recommend calling
+  options(mc.cores = parallel::detectCores())</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggthemes)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plotly)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'plotly'
+
+The following object is masked from 'package:ggplot2':
+
+    last_plot
+
+The following object is masked from 'package:stats':
+
+    filter
+
+The following object is masked from 'package:graphics':
+
+    layout</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(formattable)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'formattable'
+
+The following object is masked from 'package:plotly':
+
+    style</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>bundesliga <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"Bundesliga_Payroll.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> bundesliga <span class="sc">|&gt;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="st">"Season"</span>, <span class="st">"Rk"</span>, <span class="st">"Squad"</span>, <span class="st">"Annual Wages"</span>, <span class="st">"Standing"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">annual =</span> <span class="fu">str_extract</span>(<span class="st">`</span><span class="at">Annual Wages</span><span class="st">`</span>, <span class="st">"</span><span class="sc">\\</span><span class="st">$[0-9,]+"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">annual =</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">"[$,]"</span>, <span class="st">""</span>, annual))) <span class="sc">|&gt;</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="st">`</span><span class="at">Annual Wages</span><span class="st">`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 175 × 5
+   Season    Rk Squad          Standing    annual
+    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;             &lt;dbl&gt;     &lt;dbl&gt;
+ 1   2022    11 Augsburg             15  28506518
+ 2   2022     1 Bayern Munich         1 287000606
+ 3   2022    18 Bochum               14  17167333
+ 4   2022     2 Dortmund              2 133970796
+ 5   2022     9 Eint Frankfurt        7  37133920
+ 6   2022    16 Freiburg              5  21420895
+ 7   2022    10 Hertha BSC           18  36543455
+ 8   2022     7 Hoffenheim           12  41267203
+ 9   2022    13 Köln                 11  23378187
+10   2022     4 Leverkusen            6  62688098
+# ℹ 165 more rows</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>y_1 <span class="ot">&lt;-</span> y <span class="sc">|&gt;</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">.by =</span> Season, <span class="at">Rk =</span> Rk, <span class="at">Squad =</span> Squad, <span class="at">Standing =</span> Standing, <span class="at">annual =</span> annual, <span class="at">percent =</span> annual<span class="sc">/</span><span class="fu">sum</span>(annual))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Returning more (or less) than 1 row per `summarise()` group was deprecated in
+dplyr 1.1.0.
+ℹ Please use `reframe()` instead.
+ℹ When switching from `summarise()` to `reframe()`, remember that `reframe()`
+  always returns an ungrouped data frame and adjust accordingly.</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>fit_2 <span class="ot">&lt;-</span> <span class="fu">stan_glm</span>(Standing <span class="sc">~</span> Rk,</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">data =</span> y,</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">family =</span> gaussian,</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">refresh =</span> <span class="dv">0</span>)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>fit_3 <span class="ot">&lt;-</span> <span class="fu">stan_glm</span>(Standing <span class="sc">~</span> Rk <span class="sc">+</span> percent,</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>                  <span class="at">data =</span> y_1,</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>                  <span class="at">family =</span> gaussian,</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>                  <span class="at">refresh =</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>fit_2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>stan_glm
+ family:       gaussian [identity]
+ formula:      Standing ~ Rk
+ observations: 175
+ predictors:   2
+------
+            Median MAD_SD
+(Intercept) 3.9    0.7   
+Rk          0.6    0.1   
+
+Auxiliary parameter(s):
+      Median MAD_SD
+sigma 4.3    0.2   
+
+------
+* For help interpreting the printed output see ?print.stanreg
+* For info on the priors used see ?prior_summary.stanreg</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>fit_3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>stan_glm
+ family:       gaussian [identity]
+ formula:      Standing ~ Rk + percent
+ observations: 175
+ predictors:   3
+------
+            Median MAD_SD
+(Intercept)   8.0    1.3 
+Rk            0.3    0.1 
+percent     -31.9    9.0 
+
+Auxiliary parameter(s):
+      Median MAD_SD
+sigma 4.1    0.2   
+
+------
+* For help interpreting the printed output see ?print.stanreg
+* For info on the priors used see ?prior_summary.stanreg</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">loo_compare</span>(<span class="fu">loo</span>(fit_2), <span class="fu">loo</span>(fit_3))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      elpd_diff se_diff
+fit_3  0.0       0.0   
+fit_2 -5.4       1.9   </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>newobs <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">Rk =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>pe_2 <span class="ot">&lt;-</span> <span class="fu">posterior_epred</span>(fit_2, <span class="at">newdata =</span> newobs) <span class="sc">|&gt;</span> </span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>() <span class="sc">|&gt;</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="st">`</span><span class="at">1</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">20</span><span class="st">`</span>,</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"rank"</span>,</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"standing"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_all</span>(as.numeric)</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>pe_2 <span class="sc">|&gt;</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> rank, <span class="at">y =</span> standing)) <span class="sc">+</span></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="otherleaguetest_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>pe_2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 80,000 × 2
+    rank standing
+   &lt;dbl&gt;    &lt;dbl&gt;
+ 1     1     4.11
+ 2     2     4.78
+ 3     3     5.44
+ 4     4     6.10
+ 5     5     6.76
+ 6     6     7.42
+ 7     7     8.08
+ 8     8     8.74
+ 9     9     9.40
+10    10    10.1 
+# ℹ 79,990 more rows</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>y_1 <span class="ot">&lt;-</span> y <span class="sc">|&gt;</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Rk, <span class="at">y =</span> Standing)) <span class="sc">+</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_reverse</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">20</span>, <span class="dv">1</span>, <span class="at">by =</span> <span class="sc">-</span><span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_reverse</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">20</span>, <span class="dv">1</span>, <span class="at">by =</span> <span class="sc">-</span><span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Payroll Rank vs. Season Standing in the Bundesliga"</span>,</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"There is a positive correlation between the two"</span>,</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Payroll Rank"</span>,</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Season Standing"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>y_1 <span class="sc">|&gt;</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplotly</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-6671bbe23503e434e9ad" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-6671bbe23503e434e9ad">{"x":{"data":[{"x":[-11.188072374649346,-0.72025478724390268,-17.852962648868562,-2.3832491405308245,-8.7972371866926551,-16.168162852711976,-10.326180916838348,-6.7721013858914372,-12.63193795774132,-3.7589727055281399,-4.6773599391803149,-14.089537514559925,-2.9079286562278868,-7.6301830418407919,-16.692252162657677,-15.104414729960263,-11.867202344536782,-6.1221079785376791,-18.021893483586609,-10.789108603075146,-0.96085317246615887,-15.095938499830662,-2.2876727962866426,-8.6119955688714978,-16.970193143934011,-16.280352528393269,-7.8002056285738943,-7.342811903730035,-9.6997873604297631,-5.3788875227794053,-5.7055987723171713,-12.625262962840498,-3.9319523366168143,-14.055185122787952,-11.978423781320453,-2.8168640173971653,-17.90348335262388,-14.268226706981659,-0.96343738418072467,-1.9439563367515802,-7.6678412890061738,-17.128703876398504,-10.125360772199929,-8.9351666022092111,-10.831863721832633,-5.3023840159177782,-7.3917366581037642,-12.90494594629854,-5.7342989798635244,-2.9070539174601437,-15.206347551383079,-16.305271159112454,-12.035742724500597,-4.3596330795437099,-12.660298965871334,-0.86655817143619063,-2.1891298871487379,-15.313475392013789,-9.652788526378572,-16.666828040592371,-6.0295457541942596,-9.3319165335968144,-12.367970626614987,-7.6216529889032243,-5.1673018900677565,-13.601990961283445,-17.971228456497194,-2.7539088770747187,-7.1697504242882131,-15.654276770353317,-11.159367314912378,-4.2574206173419951,-12.695753476023674,-0.7266741262748837,-2.1415818378329279,-15.907312524691225,-8.2142904538661234,-15.286230975389481,-12.306643986143172,-9.0019801555201404,-4.6156787239015102,-7.0810409439727664,-13.919190534763038,-16.781476890295743,-5.8885298842564229,-3.3100196734070777,-10.138510761409998,-10.918208075501024,-4.2863240366801616,-17.274834512732923,-1.0688319792971015,-1.851765152812004,-12.928004897758365,-15.232649036310614,-9.1449647365137938,-13.659665512107313,-7.6212361929938197,-10.986238187924027,-4.028500511497259,-4.9935846267268058,-16.114254786260425,-6.2793486814945938,-6.8246118148788808,-10.338546637631953,-12.135660130716861,-3.0315190719440581,-15.100894892960786,-1.0257845157757401,-15.791333637014031,-3.3697825688868761,-13.922343975119293,-17.34048995617777,-6.8156281298026444,-11.608472137711942,-8.0500256776809689,-18.213306029886006,-12.740665582381189,-4.6171174520626668,-6.365728605166078,-11.181302575953305,-10.037318658269943,-4.0353293839842079,-8.7806607075035572,-2.3690260566771029,-13.950335486046971,-0.81191286910325289,-16.664608680643141,-2.7909344319254159,-11.270885663479566,-7.2005551854148511,-8.6265109192579992,-7.7666592605412008,-16.264760606363417,-15.111154054477812,-5.0474143519997599,-6.1585734559223058,-12.811613579839468,-4.2528514467179779,-10.056504241377116,-12.062367094494402,-2.1420216474682094,-14.803272922150791,-1.3950167821720243,-2.0932894639670847,-13.319090481847525,-14.341886807791889,-5.0484145972877741,-10.902789459563792,-7.9657195752486585,-15.791187344677747,-6.3177561493590471,-6.8458266632631419,-11.707750930637122,-17.181043677590786,-3.8118171075358989,-9.2271263971924782,-9.8799743680283427,-2.8938122872263192,-15.787786290422082,-1.0749813180416823,-16.864259127527475,-3.256218018196523,-11.235749313794077,-15.075065183639527,-6.012229758128524,-14.04500548299402,-10.05986881442368,-5.0755030026659371,-9.1955668266862638,-12.083991866186262,-12.61551010031253,-2.1724820524454116,-8.0804412089288231,-7.354619495756924,-3.8995726769790053],"y":[-15.304582880996168,-0.70887149143964046,-13.712829513289034,-1.6652979638427494,-6.8912324495613575,-5.3926645468920471,-17.604470122791827,-11.665823452547192,-11.24718330167234,-6.3031569644808769,-10.386873680911958,-9.2016655670478933,-2.7334266688674687,-16.949321822077035,-15.881455715186894,-3.7539337541908027,-12.789520613476634,-8.0439416132867336,-16.778527083992959,-14.120034710504115,-1.3209014888852835,-12.759528719261288,-1.863323960825801,-11.02488505654037,-6.2629420394077897,-17.675796174071728,-16.236579066328705,-9.2932313458994038,-6.932204750366509,-3.3657975848764181,-9.9424900911748413,-8.2133534014225003,-4.3997209839522835,-14.934207036532461,-5.1413430865854028,-11.899485731124878,-14.701198519766331,-13.386643020808696,-1.2542194923385979,-2.6984686814248562,-4.8579295707866548,-9.7751128004863865,-14.276652761735022,-10.894871375150979,-16.103884744271635,-6.3361497521400452,-7.8249454936012626,-12.329906307533383,-1.6242899933829902,-17.912842472456397,-9.1291799729689949,-6.9118251277133824,-17.199663515575232,-4.0072637720033528,-14.841035959683358,-0.72222013976424926,-1.9170697301626205,-16.753340041078626,-8.7850701579824086,-8.2730988480150707,-10.181738239526748,-5.7537784267216923,-13.769936330616474,-5.3453222958371045,-3.8370604865252971,-13.092571532353759,-18.217011895403267,-3.2153966300189496,-11.627306912839412,-11.217039528489114,-16.074631374515594,-7.0722287591546777,-14.931121067516505,-0.61248957421630623,-1.7479316329583525,-9.823345788940788,-7.1861509311944243,-12.650451935455203,-10.738937073759734,-9.0986671505495913,-3.8858878722414376,-5.2190819174051288,-11.750930803827941,-17.782601875439287,-3.34623331297189,-14.317848637141287,-15.744917796365916,-8.0291495848447081,-5.7697467941790821,-12.252934615127742,-0.75862135030329225,-4.058343286067247,-7.8823662193492057,-14.711962871812284,-16.61223038211465,-9.8263418911024925,-2.9904261071234943,-18.329999615997075,-5.0966916821897028,-8.7920928470790383,-13.707665413804353,-6.1348741620779039,-1.6556539168581366,-6.8102090302854776,-11.023827701807022,-15.77850648202002,-12.601316062547266,-0.81330022644251587,-17.754887918755411,-3.1594242211431265,-10.735936450213194,-6.9409574924036859,-13.875918924994767,-6.2841129923239354,-4.2799402620643381,-17.271826700121164,-5.3745764797553424,-12.347042088024319,-9.2486922714859254,-15.198696571215986,-2.0637920916080477,-10.192930066771805,-8.0895015796646472,-15.863125723972917,-12.375656244903803,-0.66513273622840641,-14.283100489340722,-1.7391164811328053,-16.176919001340867,-10.372656758315861,-6.8776868438348178,-15.381839838810265,-11.039293988980353,-9.1825303679332144,-2.6852430060505865,-3.9574920039623978,-5.856241769716144,-5.0333174798637632,-17.02620329745114,-12.983907955139875,-8.2951823689043529,-5.2050253471359609,-1.3723262567073107,-7.2052887240424752,-9.3333049295470119,-16.957355900853873,-16.19287735912949,-14.839656133949756,-7.9745041640475396,-11.61163319516927,-4.2277273610234261,-3.1238969784229993,-10.927331363223493,-18.130794949457048,-6.2987601943314075,-13.6009706357494,-9.7871079912409193,-1.9109774347394706,-8.0140862032771114,-1.1487900245934726,-17.993854768574238,-2.3992706740275027,-13.17215690203011,-14.186215242370963,-15.701231623627246,-11.303192784637213,-8.7943656403571371,-4.366648668423295,-5.6964097186923031,-7.2250780049711469,-17.032643765397371,-3.3240956377238033,-15.352648855373264,-12.198313255980612,-5.0023116759955881],"text":["Rk: 11<br />Standing: 15","Rk:  1<br />Standing:  1","Rk: 18<br />Standing: 14","Rk:  2<br />Standing:  2","Rk:  9<br />Standing:  7","Rk: 16<br />Standing:  5","Rk: 10<br />Standing: 18","Rk:  7<br />Standing: 12","Rk: 13<br />Standing: 11","Rk:  4<br />Standing:  6","Rk:  5<br />Standing: 10","Rk: 14<br />Standing:  9","Rk:  3<br />Standing:  3","Rk:  8<br />Standing: 17","Rk: 17<br />Standing: 16","Rk: 15<br />Standing:  4","Rk: 12<br />Standing: 13","Rk:  6<br />Standing:  8","Rk: 18<br />Standing: 17","Rk: 11<br />Standing: 14","Rk:  1<br />Standing:  1","Rk: 15<br />Standing: 13","Rk:  2<br />Standing:  2","Rk:  9<br />Standing: 11","Rk: 17<br />Standing:  6","Rk: 16<br />Standing: 18","Rk:  8<br />Standing: 16","Rk:  7<br />Standing:  9","Rk: 10<br />Standing:  7","Rk:  5<br />Standing:  3","Rk:  6<br />Standing: 10","Rk: 13<br />Standing:  8","Rk:  4<br />Standing:  4","Rk: 14<br />Standing: 15","Rk: 12<br />Standing:  5","Rk:  3<br />Standing: 12","Rk: 18<br />Standing: 15","Rk: 14<br />Standing: 13","Rk:  1<br />Standing:  1","Rk:  2<br />Standing:  3","Rk:  8<br />Standing:  5","Rk: 17<br />Standing: 10","Rk: 10<br />Standing: 14","Rk:  9<br />Standing: 11","Rk: 11<br />Standing: 16","Rk:  5<br />Standing:  6","Rk:  7<br />Standing:  8","Rk: 13<br />Standing: 12","Rk:  6<br />Standing:  2","Rk:  3<br />Standing: 18","Rk: 15<br />Standing:  9","Rk: 16<br />Standing:  7","Rk: 12<br />Standing: 17","Rk:  4<br />Standing:  4","Rk: 13<br />Standing: 15","Rk:  1<br />Standing:  1","Rk:  2<br />Standing:  2","Rk: 15<br />Standing: 17","Rk: 10<br />Standing:  9","Rk: 17<br />Standing:  8","Rk:  6<br />Standing: 10","Rk:  9<br />Standing:  6","Rk: 12<br />Standing: 14","Rk:  8<br />Standing:  5","Rk:  5<br />Standing:  4","Rk: 14<br />Standing: 13","Rk: 18<br />Standing: 18","Rk:  3<br />Standing:  3","Rk:  7<br />Standing: 12","Rk: 16<br />Standing: 11","Rk: 11<br />Standing: 16","Rk:  4<br />Standing:  7","Rk: 13<br />Standing: 15","Rk:  1<br />Standing:  1","Rk:  2<br />Standing:  2","Rk: 16<br />Standing: 10","Rk:  8<br />Standing:  7","Rk: 15<br />Standing: 13","Rk: 12<br />Standing: 11","Rk:  9<br />Standing:  9","Rk:  5<br />Standing:  4","Rk:  7<br />Standing:  5","Rk: 14<br />Standing: 12","Rk: 17<br />Standing: 18","Rk:  6<br />Standing:  3","Rk:  3<br />Standing: 14","Rk: 10<br />Standing: 16","Rk: 11<br />Standing:  8","Rk:  4<br />Standing:  6","Rk: 17<br />Standing: 12","Rk:  1<br />Standing:  1","Rk:  2<br />Standing:  4","Rk: 13<br />Standing:  8","Rk: 15<br />Standing: 15","Rk:  9<br />Standing: 17","Rk: 14<br />Standing: 10","Rk:  8<br />Standing:  3","Rk: 11<br />Standing: 18","Rk:  4<br />Standing:  5","Rk:  5<br />Standing:  9","Rk: 16<br />Standing: 14","Rk:  6<br />Standing:  6","Rk:  7<br />Standing:  2","Rk: 10<br />Standing:  7","Rk: 12<br />Standing: 11","Rk:  3<br />Standing: 16","Rk: 15<br />Standing: 13","Rk:  1<br />Standing:  1","Rk: 16<br />Standing: 18","Rk:  3<br />Standing:  3","Rk: 14<br />Standing: 11","Rk: 17<br />Standing:  7","Rk:  7<br />Standing: 14","Rk: 12<br />Standing:  6","Rk:  8<br />Standing:  4","Rk: 18<br />Standing: 17","Rk: 13<br />Standing:  5","Rk:  5<br />Standing: 12","Rk:  6<br />Standing:  9","Rk: 11<br />Standing: 15","Rk: 10<br />Standing:  2","Rk:  4<br />Standing: 10","Rk:  9<br />Standing:  8","Rk:  2<br />Standing: 16","Rk: 14<br />Standing: 12","Rk:  1<br />Standing:  1","Rk: 17<br />Standing: 14","Rk:  3<br />Standing:  2","Rk: 11<br />Standing: 16","Rk:  7<br />Standing: 10","Rk:  9<br />Standing:  7","Rk:  8<br />Standing: 15","Rk: 16<br />Standing: 11","Rk: 15<br />Standing:  9","Rk:  5<br />Standing:  3","Rk:  6<br />Standing:  4","Rk: 13<br />Standing:  6","Rk:  4<br />Standing:  5","Rk: 10<br />Standing: 17","Rk: 12<br />Standing: 13","Rk:  2<br />Standing:  8","Rk: 15<br />Standing:  5","Rk:  1<br />Standing:  1","Rk:  2<br />Standing:  7","Rk: 13<br />Standing:  9","Rk: 14<br />Standing: 17","Rk:  5<br />Standing: 16","Rk: 11<br />Standing: 15","Rk:  8<br />Standing:  8","Rk: 16<br />Standing: 12","Rk:  6<br />Standing:  4","Rk:  7<br />Standing:  3","Rk: 12<br />Standing: 11","Rk: 17<br />Standing: 18","Rk:  4<br />Standing:  6","Rk:  9<br />Standing: 14","Rk: 10<br />Standing: 10","Rk:  3<br />Standing:  2","Rk: 16<br />Standing:  8","Rk:  1<br />Standing:  1","Rk: 17<br />Standing: 18","Rk:  3<br />Standing:  2","Rk: 11<br />Standing: 13","Rk: 15<br />Standing: 14","Rk:  6<br />Standing: 16","Rk: 14<br />Standing: 11","Rk: 10<br />Standing:  9","Rk:  5<br />Standing:  4","Rk:  9<br />Standing:  6","Rk: 12<br />Standing:  7","Rk: 13<br />Standing: 17","Rk:  2<br />Standing:  3","Rk:  8<br />Standing: 15","Rk:  7<br />Standing: 12","Rk:  4<br />Standing:  5"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,0,0,1)","opacity":0.5,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[-18,-17.784810126582279,-17.569620253164558,-17.354430379746834,-17.139240506329113,-16.924050632911392,-16.708860759493671,-16.49367088607595,-16.278481012658229,-16.063291139240505,-15.848101265822784,-15.632911392405063,-15.417721518987342,-15.20253164556962,-14.987341772151899,-14.772151898734176,-14.556962025316455,-14.341772151898734,-14.126582278481013,-13.911392405063291,-13.69620253164557,-13.481012658227847,-13.265822784810126,-13.050632911392405,-12.835443037974684,-12.620253164556962,-12.405063291139239,-12.189873417721518,-11.974683544303797,-11.759493670886076,-11.544303797468354,-11.329113924050633,-11.11392405063291,-10.898734177215189,-10.683544303797468,-10.468354430379748,-10.253164556962025,-10.037974683544302,-9.8227848101265813,-9.6075949367088604,-9.3924050632911396,-9.1772151898734169,-8.962025316455696,-8.7468354430379751,-8.5316455696202524,-8.3164556962025316,-8.1012658227848089,-7.886075949367088,-7.6708860759493671,-7.4556962025316444,-7.2405063291139236,-7.0253164556962027,-6.81012658227848,-6.5949367088607591,-6.3797468354430382,-6.1645569620253156,-5.9493670886075947,-5.7341772151898738,-5.5189873417721511,-5.3037974683544302,-5.0886075949367076,-4.8734177215189867,-4.6582278481012658,-4.4430379746835431,-4.2278481012658222,-4.0126582278481013,-3.7974683544303787,-3.5822784810126578,-3.3670886075949369,-3.1518987341772142,-2.9367088607594933,-2.7215189873417707,-2.5063291139240498,-2.2911392405063289,-2.0759493670886062,-1.8607594936708871,-1.6455696202531627,-1.4303797468354418,-1.2151898734177209,-1],"y":[-14.497068403908795,-14.370769251913853,-14.244470099918912,-14.118170947923968,-13.991871795929026,-13.865572643934083,-13.739273491939143,-13.6129743399442,-13.486675187949258,-13.360376035954314,-13.234076883959373,-13.107777731964431,-12.981478579969489,-12.855179427974546,-12.728880275979604,-12.602581123984661,-12.476281971989719,-12.349982819994779,-12.223683667999836,-12.097384516004894,-11.971085364009951,-11.844786212015007,-11.718487060020067,-11.592187908025124,-11.465888756030182,-11.33958960403524,-11.213290452040297,-11.086991300045355,-10.960692148050413,-10.834392996055472,-10.708093844060528,-10.581794692065587,-10.455495540070643,-10.329196388075703,-10.20289723608076,-10.076598084085818,-9.9502989320908757,-9.8239997800959333,-9.697700628100991,-9.5714014761060486,-9.4451023241111081,-9.3188031721161639,-9.1925040201212234,-9.066204868126281,-8.9399057161313387,-8.8136065641363963,-8.687307412141454,-8.5610082601465116,-8.4347091081515693,-8.3084099561566269,-8.1821108041616846,-8.055811652166744,-7.9295125001717999,-7.8032133481768593,-7.6769141961819169,-7.5506150441869746,-7.4243158921920323,-7.2980167401970899,-7.1717175882021476,-7.0454184362072052,-6.9191192842122629,-6.7928201322173205,-6.666520980222379,-6.5402218282274358,-6.4139226762324952,-6.2876235242375529,-6.1613243722426105,-6.0350252202476682,-5.9087260682527258,-5.7824269162577835,-5.6561277642628411,-5.5298286122678988,-5.4035294602729564,-5.277230308278015,-5.1509311562830726,-5.0246320042881312,-4.8983328522931879,-4.7720337002982456,-4.6457345483033041,-4.5194353963083618],"text":["Rk: -18.000000<br />Standing: -14.497068","Rk: -17.784810<br />Standing: -14.370769","Rk: -17.569620<br />Standing: -14.244470","Rk: -17.354430<br />Standing: -14.118171","Rk: -17.139241<br />Standing: -13.991872","Rk: -16.924051<br />Standing: -13.865573","Rk: -16.708861<br />Standing: -13.739273","Rk: -16.493671<br />Standing: -13.612974","Rk: -16.278481<br />Standing: -13.486675","Rk: -16.063291<br />Standing: -13.360376","Rk: -15.848101<br />Standing: -13.234077","Rk: -15.632911<br />Standing: -13.107778","Rk: -15.417722<br />Standing: -12.981479","Rk: -15.202532<br />Standing: -12.855179","Rk: -14.987342<br />Standing: -12.728880","Rk: -14.772152<br />Standing: -12.602581","Rk: -14.556962<br />Standing: -12.476282","Rk: -14.341772<br />Standing: -12.349983","Rk: -14.126582<br />Standing: -12.223684","Rk: -13.911392<br />Standing: -12.097385","Rk: -13.696203<br />Standing: -11.971085","Rk: -13.481013<br />Standing: -11.844786","Rk: -13.265823<br />Standing: -11.718487","Rk: -13.050633<br />Standing: -11.592188","Rk: -12.835443<br />Standing: -11.465889","Rk: -12.620253<br />Standing: -11.339590","Rk: -12.405063<br />Standing: -11.213290","Rk: -12.189873<br />Standing: -11.086991","Rk: -11.974684<br />Standing: -10.960692","Rk: -11.759494<br />Standing: -10.834393","Rk: -11.544304<br />Standing: -10.708094","Rk: -11.329114<br />Standing: -10.581795","Rk: -11.113924<br />Standing: -10.455496","Rk: -10.898734<br />Standing: -10.329196","Rk: -10.683544<br />Standing: -10.202897","Rk: -10.468354<br />Standing: -10.076598","Rk: -10.253165<br />Standing:  -9.950299","Rk: -10.037975<br />Standing:  -9.824000","Rk:  -9.822785<br />Standing:  -9.697701","Rk:  -9.607595<br />Standing:  -9.571401","Rk:  -9.392405<br />Standing:  -9.445102","Rk:  -9.177215<br />Standing:  -9.318803","Rk:  -8.962025<br />Standing:  -9.192504","Rk:  -8.746835<br />Standing:  -9.066205","Rk:  -8.531646<br />Standing:  -8.939906","Rk:  -8.316456<br />Standing:  -8.813607","Rk:  -8.101266<br />Standing:  -8.687307","Rk:  -7.886076<br />Standing:  -8.561008","Rk:  -7.670886<br />Standing:  -8.434709","Rk:  -7.455696<br />Standing:  -8.308410","Rk:  -7.240506<br />Standing:  -8.182111","Rk:  -7.025316<br />Standing:  -8.055812","Rk:  -6.810127<br />Standing:  -7.929513","Rk:  -6.594937<br />Standing:  -7.803213","Rk:  -6.379747<br />Standing:  -7.676914","Rk:  -6.164557<br />Standing:  -7.550615","Rk:  -5.949367<br />Standing:  -7.424316","Rk:  -5.734177<br />Standing:  -7.298017","Rk:  -5.518987<br />Standing:  -7.171718","Rk:  -5.303797<br />Standing:  -7.045418","Rk:  -5.088608<br />Standing:  -6.919119","Rk:  -4.873418<br />Standing:  -6.792820","Rk:  -4.658228<br />Standing:  -6.666521","Rk:  -4.443038<br />Standing:  -6.540222","Rk:  -4.227848<br />Standing:  -6.413923","Rk:  -4.012658<br />Standing:  -6.287624","Rk:  -3.797468<br />Standing:  -6.161324","Rk:  -3.582278<br />Standing:  -6.035025","Rk:  -3.367089<br />Standing:  -5.908726","Rk:  -3.151899<br />Standing:  -5.782427","Rk:  -2.936709<br />Standing:  -5.656128","Rk:  -2.721519<br />Standing:  -5.529829","Rk:  -2.506329<br />Standing:  -5.403529","Rk:  -2.291139<br />Standing:  -5.277230","Rk:  -2.075949<br />Standing:  -5.150931","Rk:  -1.860759<br />Standing:  -5.024632","Rk:  -1.645570<br />Standing:  -4.898333","Rk:  -1.430380<br />Standing:  -4.772034","Rk:  -1.215190<br />Standing:  -4.645735","Rk:  -1.000000<br />Standing:  -4.519435"],"type":"scatter","mode":"lines","name":"fitted values","line":{"width":3.7795275590551185,"color":"rgba(51,102,255,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":43.762557077625573,"r":7.3059360730593621,"b":40.182648401826498,"l":37.260273972602747},"plot_bgcolor":"rgba(235,235,235,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"title":{"text":"Payroll Rank vs. Season Standing in the Bundesliga","font":{"color":"rgba(0,0,0,1)","family":"","size":17.534246575342465},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-19.087958592018111,0.1543977748882025],"tickmode":"array","ticktext":["19","18","17","16","15","14","13","12","11","10","9","8","7","6","5","4","3","2","1"],"tickvals":[-19,-18,-17,-16,-15,-14,-13,-12,-11,-10,-9.0000000000000018,-8,-7,-6,-5,-4,-3,-2,-1],"categoryorder":"array","categoryarray":["19","18","17","16","15","14","13","12","11","10","9","8","7","6","5","4","3","2","1"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"Payroll Rank","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-19.215875118086114,0.2733859278727323],"tickmode":"array","ticktext":["19","18","17","16","15","14","13","12","11","10","9","8","7","6","5","4","3","2","1"],"tickvals":[-19,-18,-17,-16,-15,-14,-13,-12,-11,-10,-9,-8,-7.0000000000000018,-5.9999999999999982,-5,-4,-3,-2,-1],"categoryorder":"array","categoryarray":["19","18","17","16","15","14","13","12","11","10","9","8","7","6","5","4","3","2","1"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"Season Standing","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"1374a4e104e70":{"x":{},"y":{},"type":"scatter"},"1374a108dc31a":{"x":{},"y":{}}},"cur_data":"1374a4e104e70","visdat":{"1374a4e104e70":["function (y) ","x"],"1374a108dc31a":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>top5 <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"Top5Leagues_Payroll.xlsx"</span>)</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>top5</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,052 × 10
+   League Season    Rk Squad  `# Pl` `Weekly Wages` `Annual Wages` `% Estimated`
+   &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;          &lt;chr&gt;                  &lt;dbl&gt;
+ 1 EPL      2022     6 Arsen…     69 £ 1,955,000 (… £ 101,660,000…          0.07
+ 2 EPL      2022     7 Aston…     81 £ 1,935,000 (… £ 100,620,000…          0.23
+ 3 EPL      2022    18 Bourn…     83 £ 739,000 (€ … £ 38,428,000 …          0.55
+ 4 EPL      2022    20 Brent…     75 £ 618,000 (€ … £ 32,136,000 …          0.75
+ 5 EPL      2022    19 Brigh…     70 £ 738,000 (€ … £ 38,376,000 …          0.69
+ 6 EPL      2022     3 Chels…     86 £ 3,655,000 (… £ 190,060,000…          0.16
+ 7 EPL      2022    12 Cryst…     73 £ 1,285,000 (… £ 66,820,000 …          0.48
+ 8 EPL      2022     8 Evert…     80 £ 1,631,000 (… £ 84,812,000 …          0.45
+ 9 EPL      2022    13 Fulham     72 £ 1,045,000 (… £ 54,340,000 …          0.42
+10 EPL      2022    17 Leeds…     78 £ 949,500 (€ … £ 49,374,000 …          0.7 
+# ℹ 1,042 more rows
+# ℹ 2 more variables: Standing &lt;dbl&gt;, `Squad (again)` &lt;chr&gt;</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> top5 <span class="sc">|&gt;</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(<span class="st">"# Pl"</span>, <span class="st">"Weekly Wages"</span>, <span class="st">"% Estimated"</span>, <span class="st">"Squad (again)"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">annual =</span> <span class="fu">str_extract</span>(<span class="st">`</span><span class="at">Annual Wages</span><span class="st">`</span>, <span class="st">"</span><span class="sc">\\</span><span class="st">$[0-9,]+"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">annual =</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">"[$,]"</span>, <span class="st">""</span>, annual))) <span class="sc">|&gt;</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="st">`</span><span class="at">Annual Wages</span><span class="st">`</span>) <span class="sc">|&gt;</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Season <span class="sc">&gt;=</span> <span class="dv">2013</span>) <span class="sc">|&gt;</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">.by =</span> <span class="fu">c</span>(League, Season), <span class="at">total =</span> <span class="fu">sum</span>(annual))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>a <span class="sc">|&gt;</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Season, <span class="at">y =</span> total, <span class="at">color =</span> League)) <span class="sc">+</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="otherleaguetest_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> top5 <span class="sc">|&gt;</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(<span class="st">"# Pl"</span>, <span class="st">"Weekly Wages"</span>, <span class="st">"% Estimated"</span>, <span class="st">"Squad (again)"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">annual =</span> <span class="fu">str_extract</span>(<span class="st">`</span><span class="at">Annual Wages</span><span class="st">`</span>, <span class="st">"</span><span class="sc">\\</span><span class="st">$[0-9,]+"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">annual =</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">"[$,]"</span>, <span class="st">""</span>, annual))) <span class="sc">|&gt;</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="st">`</span><span class="at">Annual Wages</span><span class="st">`</span>) <span class="sc">|&gt;</span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Season <span class="sc">&gt;=</span> <span class="dv">2013</span>, Standing <span class="sc">&lt;=</span> <span class="dv">4</span> <span class="sc">|</span> Standing <span class="sc">&gt;=</span> <span class="dv">18</span>) <span class="sc">|&gt;</span></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">top =</span> Standing <span class="sc">&lt;=</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>c <span class="ot">&lt;-</span> b <span class="sc">|&gt;</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Season, <span class="at">y =</span> annual, <span class="at">color =</span> top, <span class="at">text =</span> <span class="fu">paste</span>(<span class="st">"Season:"</span>, Season, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>, </span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>                                                               <span class="st">"Payroll:"</span>, <span class="fu">currency</span>(annual), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>,</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>                                                               <span class="st">"Standing:"</span>, Standing, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>,</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>                                                               <span class="st">"Team:"</span>, Squad))) <span class="sc">+</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">dollar_format</span>()) <span class="sc">+</span></span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Payroll of Top Four vs Bottom Three Teams in Each Season"</span>,</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"The payroll gap of top from bottom has steadily increased"</span>,</span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Payroll"</span>,</span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">"Top Four"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>c <span class="sc">|&gt;</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplotly</span>(<span class="at">tooltip =</span> <span class="st">"text"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-1752d79a5109262f0f6c" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-1752d79a5109262f0f6c">{"x":{"data":[{"x":[2022,2022,2022,2021,2021,2021,2020,2020,2020,2019,2019,2019,2018,2018,2018,2017,2017,2017,2016,2016,2016,2015,2015,2015,2014,2014,2014,2013,2013,2013,2022,2021,2020,2019,2018,2017,2016,2014,2013,2022,2022,2022,2021,2021,2021,2020,2020,2020,2019,2019,2019,2018,2018,2018,2017,2017,2017,2016,2016,2016,2015,2015,2015,2014,2014,2014,2013,2013,2013,2022,2022,2022,2021,2021,2021,2020,2020,2020,2019,2019,2019,2018,2018,2018,2017,2017,2017,2016,2016,2016,2015,2015,2015,2014,2014,2014,2013,2013,2013,2022,2022,2022,2021,2021,2021,2020,2020,2020,2019,2019,2019,2018,2018,2018,2017,2017,2017,2016,2016,2016,2015,2015,2015,2014,2014,2014,2013,2013,2013],"y":[62754708,100129945,62986030,48025544,38060731,50285851,63396662,24410390,45070367,51464621,31826646,70081807,40090150,61877851,42672499,59609032,58054764,71763674,51215501,47233220,58041399,45243902,59855725,39684267,18934364,44714066,54806479,33870651,40499682,33818395,36543455,12942721,63714862,7143974,11176598,29816147,15184764,7757479,9707042,18495887,27216235,20682808,24127471,26435758,19918540,18996243,17538912,23673967,34160623,35995024,12759279,18939174,15732028,21182237,21461472,20080579,25449261,24887727,14708837,14300174,14179917,15396738,13957752,5497087,8693024,7422190,15111387,10720037,7385502,7085621,16992378,18337331,28198819,10445894,20718543,10873920,19159301,8458630,14124885,8163087,19770767,12661444,12606411,16751140,13454314,19101212,7001300,12414819,13235203,7413018,6280785,12983482,9149585,11644367,4677724,8149839,9376847,13609218,8815316,22280354,23225100,28841118,34405212,43108428,23368232,33029412,19352928,42079122,16499416,32937690,31531319,24632944,20031658,22931028,18062733,10502963,18186047,15102212,16371009,15157246,12290490,6163590,17130249,11527168,8276203,18285917,18327703,19593439,11419148],"text":["Season: 2022 <br /> Payroll: $62,754,708.00 <br /> Standing: 19 <br /> Team: Leeds United","Season: 2022 <br /> Payroll: $100,129,945.00 <br /> Standing: 18 <br /> Team: Leicester City","Season: 2022 <br /> Payroll: $62,986,030.00 <br /> Standing: 20 <br /> Team: Southampton","Season: 2021 <br /> Payroll: $48,025,544.00 <br /> Standing: 18 <br /> Team: Burnley","Season: 2021 <br /> Payroll: $38,060,731.00 <br /> Standing: 20 <br /> Team: Norwich City","Season: 2021 <br /> Payroll: $50,285,851.00 <br /> Standing: 19 <br /> Team: Watford","Season: 2020 <br /> Payroll: $63,396,662.00 <br /> Standing: 18 <br /> Team: Fulham","Season: 2020 <br /> Payroll: $24,410,390.00 <br /> Standing: 20 <br /> Team: Sheffield Utd","Season: 2020 <br /> Payroll: $45,070,367.00 <br /> Standing: 19 <br /> Team: West Brom","Season: 2019 <br /> Payroll: $51,464,621.00 <br /> Standing: 18 <br /> Team: Bournemouth","Season: 2019 <br /> Payroll: $31,826,646.00 <br /> Standing: 20 <br /> Team: Norwich City","Season: 2019 <br /> Payroll: $70,081,807.00 <br /> Standing: 19 <br /> Team: Watford","Season: 2018 <br /> Payroll: $40,090,150.00 <br /> Standing: 18 <br /> Team: Cardiff City","Season: 2018 <br /> Payroll: $61,877,851.00 <br /> Standing: 19 <br /> Team: Fulham","Season: 2018 <br /> Payroll: $42,672,499.00 <br /> Standing: 20 <br /> Team: Huddersfield","Season: 2017 <br /> Payroll: $59,609,032.00 <br /> Standing: 19 <br /> Team: Stoke City","Season: 2017 <br /> Payroll: $58,054,764.00 <br /> Standing: 18 <br /> Team: Swansea City","Season: 2017 <br /> Payroll: $71,763,674.00 <br /> Standing: 20 <br /> Team: West Brom","Season: 2016 <br /> Payroll: $51,215,501.00 <br /> Standing: 18 <br /> Team: Hull City","Season: 2016 <br /> Payroll: $47,233,220.00 <br /> Standing: 19 <br /> Team: Middlesbrough","Season: 2016 <br /> Payroll: $58,041,399.00 <br /> Standing: 20 <br /> Team: Sunderland","Season: 2015 <br /> Payroll: $45,243,902.00 <br /> Standing: 20 <br /> Team: Aston Villa","Season: 2015 <br /> Payroll: $59,855,725.00 <br /> Standing: 18 <br /> Team: Newcastle Utd","Season: 2015 <br /> Payroll: $39,684,267.00 <br /> Standing: 19 <br /> Team: Norwich City","Season: 2014 <br /> Payroll: $18,934,364.00 <br /> Standing: 19 <br /> Team: Burnley","Season: 2014 <br /> Payroll: $44,714,066.00 <br /> Standing: 18 <br /> Team: Hull City","Season: 2014 <br /> Payroll: $54,806,479.00 <br /> Standing: 20 <br /> Team: QPR","Season: 2013 <br /> Payroll: $33,870,651.00 <br /> Standing: 20 <br /> Team: Cardiff City","Season: 2013 <br /> Payroll: $40,499,682.00 <br /> Standing: 19 <br /> Team: Fulham","Season: 2013 <br /> Payroll: $33,818,395.00 <br /> Standing: 18 <br /> Team: Norwich City","Season: 2022 <br /> Payroll: $36,543,455.00 <br /> Standing: 18 <br /> Team: Hertha BSC","Season: 2021 <br /> Payroll: $12,942,721.00 <br /> Standing: 18 <br /> Team: Greuther Fürth","Season: 2020 <br /> Payroll: $63,714,862.00 <br /> Standing: 18 <br /> Team: Schalke 04","Season: 2019 <br /> Payroll: $7,143,974.00 <br /> Standing: 18 <br /> Team: Paderborn 07","Season: 2018 <br /> Payroll: $11,176,598.00 <br /> Standing: 18 <br /> Team: Nürnberg","Season: 2017 <br /> Payroll: $29,816,147.00 <br /> Standing: 18 <br /> Team: Köln","Season: 2016 <br /> Payroll: $15,184,764.00 <br /> Standing: 18 <br /> Team: Darmstadt 98","Season: 2014 <br /> Payroll: $7,757,479.00 <br /> Standing: 18 <br /> Team: Paderborn 07","Season: 2013 <br /> Payroll: $9,707,042.00 <br /> Standing: 18 <br /> Team: Braunschweig","Season: 2022 <br /> Payroll: $18,495,887.00 <br /> Standing: 20 <br /> Team: Elche","Season: 2022 <br /> Payroll: $27,216,235.00 <br /> Standing: 19 <br /> Team: Espanyol","Season: 2022 <br /> Payroll: $20,682,808.00 <br /> Standing: 18 <br /> Team: Valladolid","Season: 2021 <br /> Payroll: $24,127,471.00 <br /> Standing: 20 <br /> Team: Alavés","Season: 2021 <br /> Payroll: $26,435,758.00 <br /> Standing: 18 <br /> Team: Granada","Season: 2021 <br /> Payroll: $19,918,540.00 <br /> Standing: 19 <br /> Team: Levante","Season: 2020 <br /> Payroll: $18,996,243.00 <br /> Standing: 20 <br /> Team: Eibar","Season: 2020 <br /> Payroll: $17,538,912.00 <br /> Standing: 18 <br /> Team: Huesca","Season: 2020 <br /> Payroll: $23,673,967.00 <br /> Standing: 19 <br /> Team: Valladolid","Season: 2019 <br /> Payroll: $34,160,623.00 <br /> Standing: 20 <br /> Team: Espanyol","Season: 2019 <br /> Payroll: $35,995,024.00 <br /> Standing: 18 <br /> Team: Leganés","Season: 2019 <br /> Payroll: $12,759,279.00 <br /> Standing: 19 <br /> Team: Mallorca","Season: 2018 <br /> Payroll: $18,939,174.00 <br /> Standing: 18 <br /> Team: Girona","Season: 2018 <br /> Payroll: $15,732,028.00 <br /> Standing: 19 <br /> Team: Huesca","Season: 2018 <br /> Payroll: $21,182,237.00 <br /> Standing: 20 <br /> Team: Rayo Vallecano","Season: 2017 <br /> Payroll: $21,461,472.00 <br /> Standing: 18 <br /> Team: La Coruña","Season: 2017 <br /> Payroll: $20,080,579.00 <br /> Standing: 19 <br /> Team: Las Palmas","Season: 2017 <br /> Payroll: $25,449,261.00 <br /> Standing: 20 <br /> Team: Málaga","Season: 2016 <br /> Payroll: $24,887,727.00 <br /> Standing: 20 <br /> Team: Granada","Season: 2016 <br /> Payroll: $14,708,837.00 <br /> Standing: 19 <br /> Team: Osasuna","Season: 2016 <br /> Payroll: $14,300,174.00 <br /> Standing: 18 <br /> Team: Sporting Gijón","Season: 2015 <br /> Payroll: $14,179,917.00 <br /> Standing: 19 <br /> Team: Getafe","Season: 2015 <br /> Payroll: $15,396,738.00 <br /> Standing: 20 <br /> Team: Levante","Season: 2015 <br /> Payroll: $13,957,752.00 <br /> Standing: 18 <br /> Team: Rayo Vallecano","Season: 2014 <br /> Payroll: $5,497,087.00 <br /> Standing: 19 <br /> Team: Almería","Season: 2014 <br /> Payroll: $8,693,024.00 <br /> Standing: 20 <br /> Team: Córdoba","Season: 2014 <br /> Payroll: $7,422,190.00 <br /> Standing: 18 <br /> Team: Eibar","Season: 2013 <br /> Payroll: $15,111,387.00 <br /> Standing: 20 <br /> Team: Betis","Season: 2013 <br /> Payroll: $10,720,037.00 <br /> Standing: 18 <br /> Team: Osasuna","Season: 2013 <br /> Payroll: $7,385,502.00 <br /> Standing: 19 <br /> Team: Valladolid","Season: 2022 <br /> Payroll: $7,085,621.00 <br /> Standing: 18 <br /> Team: Ajaccio","Season: 2022 <br /> Payroll: $16,992,378.00 <br /> Standing: 20 <br /> Team: Angers","Season: 2022 <br /> Payroll: $18,337,331.00 <br /> Standing: 19 <br /> Team: Troyes","Season: 2021 <br /> Payroll: $28,198,819.00 <br /> Standing: 20 <br /> Team: Bordeaux","Season: 2021 <br /> Payroll: $10,445,894.00 <br /> Standing: 19 <br /> Team: Metz","Season: 2021 <br /> Payroll: $20,718,543.00 <br /> Standing: 18 <br /> Team: Saint-Étienne","Season: 2020 <br /> Payroll: $10,873,920.00 <br /> Standing: 20 <br /> Team: Dijon","Season: 2020 <br /> Payroll: $19,159,301.00 <br /> Standing: 18 <br /> Team: Nantes","Season: 2020 <br /> Payroll: $8,458,630.00 <br /> Standing: 19 <br /> Team: Nîmes","Season: 2019 <br /> Payroll: $14,124,885.00 <br /> Standing: 19 <br /> Team: Amiens","Season: 2019 <br /> Payroll: $8,163,087.00 <br /> Standing: 18 <br /> Team: Nîmes","Season: 2019 <br /> Payroll: $19,770,767.00 <br /> Standing: 20 <br /> Team: Toulouse","Season: 2018 <br /> Payroll: $12,661,444.00 <br /> Standing: 19 <br /> Team: Caen","Season: 2018 <br /> Payroll: $12,606,411.00 <br /> Standing: 18 <br /> Team: Dijon","Season: 2018 <br /> Payroll: $16,751,140.00 <br /> Standing: 20 <br /> Team: Guingamp","Season: 2017 <br /> Payroll: $13,454,314.00 <br /> Standing: 20 <br /> Team: Metz","Season: 2017 <br /> Payroll: $19,101,212.00 <br /> Standing: 18 <br /> Team: Toulouse","Season: 2017 <br /> Payroll: $7,001,300.00 <br /> Standing: 19 <br /> Team: Troyes","Season: 2016 <br /> Payroll: $12,414,819.00 <br /> Standing: 20 <br /> Team: Bastia","Season: 2016 <br /> Payroll: $13,235,203.00 <br /> Standing: 18 <br /> Team: Lorient","Season: 2016 <br /> Payroll: $7,413,018.00 <br /> Standing: 19 <br /> Team: Nancy","Season: 2015 <br /> Payroll: $6,280,785.00 <br /> Standing: 19 <br /> Team: Gazélec Ajaccio","Season: 2015 <br /> Payroll: $12,983,482.00 <br /> Standing: 18 <br /> Team: Reims","Season: 2015 <br /> Payroll: $9,149,585.00 <br /> Standing: 20 <br /> Team: Troyes","Season: 2014 <br /> Payroll: $11,644,367.00 <br /> Standing: 18 <br /> Team: Evian","Season: 2014 <br /> Payroll: $4,677,724.00 <br /> Standing: 20 <br /> Team: Lens","Season: 2014 <br /> Payroll: $8,149,839.00 <br /> Standing: 19 <br /> Team: Metz","Season: 2013 <br /> Payroll: $9,376,847.00 <br /> Standing: 20 <br /> Team: Ajaccio","Season: 2013 <br /> Payroll: $13,609,218.00 <br /> Standing: 18 <br /> Team: Sochaux","Season: 2013 <br /> Payroll: $8,815,316.00 <br /> Standing: 19 <br /> Team: Valenciennes","Season: 2022 <br /> Payroll: $22,280,354.00 <br /> Standing: 19 <br /> Team: Cremonese","Season: 2022 <br /> Payroll: $23,225,100.00 <br /> Standing: 18 <br /> Team: Hellas Verona","Season: 2022 <br /> Payroll: $28,841,118.00 <br /> Standing: 20 <br /> Team: Sampdoria","Season: 2021 <br /> Payroll: $34,405,212.00 <br /> Standing: 18 <br /> Team: Cagliari","Season: 2021 <br /> Payroll: $43,108,428.00 <br /> Standing: 19 <br /> Team: Genoa","Season: 2021 <br /> Payroll: $23,368,232.00 <br /> Standing: 20 <br /> Team: Venezia","Season: 2020 <br /> Payroll: $33,029,412.00 <br /> Standing: 18 <br /> Team: Benevento","Season: 2020 <br /> Payroll: $19,352,928.00 <br /> Standing: 19 <br /> Team: Crotone","Season: 2020 <br /> Payroll: $42,079,122.00 <br /> Standing: 20 <br /> Team: Parma","Season: 2019 <br /> Payroll: $16,499,416.00 <br /> Standing: 19 <br /> Team: Brescia","Season: 2019 <br /> Payroll: $32,937,690.00 <br /> Standing: 18 <br /> Team: Lecce","Season: 2019 <br /> Payroll: $31,531,319.00 <br /> Standing: 20 <br /> Team: SPAL","Season: 2018 <br /> Payroll: $24,632,944.00 <br /> Standing: 20 <br /> Team: Chievo","Season: 2018 <br /> Payroll: $20,031,658.00 <br /> Standing: 18 <br /> Team: Empoli","Season: 2018 <br /> Payroll: $22,931,028.00 <br /> Standing: 19 <br /> Team: Frosinone","Season: 2017 <br /> Payroll: $18,062,733.00 <br /> Standing: 20 <br /> Team: Benevento","Season: 2017 <br /> Payroll: $10,502,963.00 <br /> Standing: 18 <br /> Team: Crotone","Season: 2017 <br /> Payroll: $18,186,047.00 <br /> Standing: 19 <br /> Team: Hellas Verona","Season: 2016 <br /> Payroll: $15,102,212.00 <br /> Standing: 18 <br /> Team: Empoli","Season: 2016 <br /> Payroll: $16,371,009.00 <br /> Standing: 19 <br /> Team: Palermo","Season: 2016 <br /> Payroll: $15,157,246.00 <br /> Standing: 20 <br /> Team: Pescara","Season: 2015 <br /> Payroll: $12,290,490.00 <br /> Standing: 18 <br /> Team: Carpi","Season: 2015 <br /> Payroll: $6,163,590.00 <br /> Standing: 19 <br /> Team: Frosinone","Season: 2015 <br /> Payroll: $17,130,249.00 <br /> Standing: 20 <br /> Team: Hellas Verona","Season: 2014 <br /> Payroll: $11,527,168.00 <br /> Standing: 18 <br /> Team: Cagliari","Season: 2014 <br /> Payroll: $8,276,203.00 <br /> Standing: 19 <br /> Team: Cesena","Season: 2014 <br /> Payroll: $18,285,917.00 <br /> Standing: 20 <br /> Team: Parma","Season: 2013 <br /> Payroll: $18,327,703.00 <br /> Standing: 19 <br /> Team: Bologna","Season: 2013 <br /> Payroll: $19,593,439.00 <br /> Standing: 18 <br /> Team: Catania","Season: 2013 <br /> Payroll: $11,419,148.00 <br /> Standing: 20 <br /> Team: Livorno"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(248,118,109,1)","opacity":0.5,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(248,118,109,1)"}},"hoveron":"points","name":"FALSE","legendgroup":"FALSE","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2022,2022,2022,2022,2021,2021,2021,2021,2020,2020,2020,2020,2019,2019,2019,2019,2018,2018,2018,2018,2017,2017,2017,2017,2016,2016,2016,2016,2015,2015,2015,2015,2014,2014,2014,2014,2013,2013,2013,2013,2022,2022,2022,2022,2021,2021,2021,2021,2020,2020,2020,2020,2019,2019,2019,2019,2018,2018,2018,2018,2017,2017,2017,2017,2016,2016,2016,2016,2015,2015,2015,2015,2014,2014,2014,2014,2013,2013,2013,2013,2022,2022,2022,2022,2021,2021,2021,2021,2020,2020,2020,2020,2019,2019,2019,2019,2018,2018,2018,2018,2017,2017,2017,2017,2016,2016,2016,2016,2015,2015,2015,2015,2014,2014,2014,2014,2013,2013,2013,2013,2022,2022,2022,2022,2021,2021,2021,2021,2020,2020,2020,2020,2019,2019,2019,2019,2018,2018,2018,2018,2017,2017,2017,2017,2016,2016,2016,2016,2015,2015,2015,2015,2014,2014,2014,2014,2013,2013,2013,2013,2022,2022,2022,2022,2021,2021,2021,2021,2020,2020,2020,2020,2019,2019,2019,2019,2018,2018,2018,2018,2017,2017,2017,2017,2016,2016,2016,2016,2015,2015,2015,2015,2014,2014,2014,2014,2013,2013,2013,2013],"y":[129210591,247515941,290442939,105285152,213745254,175492521,184169203,133905224,179624258,159096757,167309223,235035931,145401216,139592457,181055805,201046193,191405844,154892092,183025676,110835465,116263857,184103578,201934520,97579832,119837823,111418772,167653131,86540764,119322568,44814931,154279620,65923323,115053498,127165606,148616689,171492018,87488634,125072997,79775627,137628660,287000606,133970796,102151090,22339400,243170244,91995216,52779797,55052414,228861912,92056361,54899548,58975995,218212198,108861513,55082988,72091964,197705635,98399310,63293461,55774453,185051324,84471113,39546630,42474540,164596729,75886115,30333860,27503785,137237655,55087063,32338452,30599845,120336711,32706352,27182768,58350259,118063068,56291655,39811597,59339815,165364046,293605104,318142363,47106283,170527961,257575384,328755245,101136644,173646443,358605024,320296616,95276751,168662987,351440667,363007586,66762006,206488336,273055692,236713149,77065227,100431417,248123125,209320446,61940590,88259149,234306007,204242215,71484568,64153080,177354988,154153893,21367714,60352816,165266288,156306257,30892333,18914714,49607301,181661754,138301612,12246760,74902052,395384417,33984757,56774712,53849858,440969630,24377150,27801367,56489360,61054978,247175346,31898198,50293161,245901458,36005216,28493341,49038638,204733422,23534345,37781525,53281198,69656287,206435344,39195038,41102814,18773056,127344124,35218462,31961380,10165641,110149669,27232703,21081346,26487732,87257361,19778920,49735710,85930481,19107325,146698674,72780740,91139939,75739644,156372498,184408264,89263995,105416919,45014164,141534233,220260613,85951884,37523695,118848807,260423805,65335254,39629172,120793266,241842338,96761594,78903702,143995386,79226760,74892476,22874979,115615162,71552854,85207924,57877393,89251765,53123235,70531701,46152509,73759224,33986355,76339617,53535974,82943461,52276352,63471293],"text":["Season: 2022 <br /> Payroll: $129,210,591.00 <br /> Standing: 2 <br /> Team: Arsenal","Season: 2022 <br /> Payroll: $247,515,941.00 <br /> Standing: 1 <br /> Team: Manchester City","Season: 2022 <br /> Payroll: $290,442,939.00 <br /> Standing: 3 <br /> Team: Manchester Utd","Season: 2022 <br /> Payroll: $105,285,152.00 <br /> Standing: 4 <br /> Team: Newcastle Utd","Season: 2021 <br /> Payroll: $213,745,254.00 <br /> Standing: 3 <br /> Team: Chelsea","Season: 2021 <br /> Payroll: $175,492,521.00 <br /> Standing: 2 <br /> Team: Liverpool","Season: 2021 <br /> Payroll: $184,169,203.00 <br /> Standing: 1 <br /> Team: Manchester City","Season: 2021 <br /> Payroll: $133,905,224.00 <br /> Standing: 4 <br /> Team: Tottenham","Season: 2020 <br /> Payroll: $179,624,258.00 <br /> Standing: 4 <br /> Team: Chelsea","Season: 2020 <br /> Payroll: $159,096,757.00 <br /> Standing: 3 <br /> Team: Liverpool","Season: 2020 <br /> Payroll: $167,309,223.00 <br /> Standing: 1 <br /> Team: Manchester City","Season: 2020 <br /> Payroll: $235,035,931.00 <br /> Standing: 2 <br /> Team: Manchester Utd","Season: 2019 <br /> Payroll: $145,401,216.00 <br /> Standing: 4 <br /> Team: Chelsea","Season: 2019 <br /> Payroll: $139,592,457.00 <br /> Standing: 1 <br /> Team: Liverpool","Season: 2019 <br /> Payroll: $181,055,805.00 <br /> Standing: 2 <br /> Team: Manchester City","Season: 2019 <br /> Payroll: $201,046,193.00 <br /> Standing: 3 <br /> Team: Manchester Utd","Season: 2018 <br /> Payroll: $191,405,844.00 <br /> Standing: 3 <br /> Team: Chelsea","Season: 2018 <br /> Payroll: $154,892,092.00 <br /> Standing: 2 <br /> Team: Liverpool","Season: 2018 <br /> Payroll: $183,025,676.00 <br /> Standing: 1 <br /> Team: Manchester City","Season: 2018 <br /> Payroll: $110,835,465.00 <br /> Standing: 4 <br /> Team: Tottenham","Season: 2017 <br /> Payroll: $116,263,857.00 <br /> Standing: 4 <br /> Team: Liverpool","Season: 2017 <br /> Payroll: $184,103,578.00 <br /> Standing: 1 <br /> Team: Manchester City","Season: 2017 <br /> Payroll: $201,934,520.00 <br /> Standing: 2 <br /> Team: Manchester Utd","Season: 2017 <br /> Payroll: $97,579,832.00 <br /> Standing: 3 <br /> Team: Tottenham","Season: 2016 <br /> Payroll: $119,837,823.00 <br /> Standing: 1 <br /> Team: Chelsea","Season: 2016 <br /> Payroll: $111,418,772.00 <br /> Standing: 4 <br /> Team: Liverpool","Season: 2016 <br /> Payroll: $167,653,131.00 <br /> Standing: 3 <br /> Team: Manchester City","Season: 2016 <br /> Payroll: $86,540,764.00 <br /> Standing: 2 <br /> Team: Tottenham","Season: 2015 <br /> Payroll: $119,322,568.00 <br /> Standing: 2 <br /> Team: Arsenal","Season: 2015 <br /> Payroll: $44,814,931.00 <br /> Standing: 1 <br /> Team: Leicester City","Season: 2015 <br /> Payroll: $154,279,620.00 <br /> Standing: 4 <br /> Team: Manchester City","Season: 2015 <br /> Payroll: $65,923,323.00 <br /> Standing: 3 <br /> Team: Tottenham","Season: 2014 <br /> Payroll: $115,053,498.00 <br /> Standing: 3 <br /> Team: Arsenal","Season: 2014 <br /> Payroll: $127,165,606.00 <br /> Standing: 1 <br /> Team: Chelsea","Season: 2014 <br /> Payroll: $148,616,689.00 <br /> Standing: 2 <br /> Team: Manchester City","Season: 2014 <br /> Payroll: $171,492,018.00 <br /> Standing: 4 <br /> Team: Manchester Utd","Season: 2013 <br /> Payroll: $87,488,634.00 <br /> Standing: 4 <br /> Team: Arsenal","Season: 2013 <br /> Payroll: $125,072,997.00 <br /> Standing: 3 <br /> Team: Chelsea","Season: 2013 <br /> Payroll: $79,775,627.00 <br /> Standing: 2 <br /> Team: Liverpool","Season: 2013 <br /> Payroll: $137,628,660.00 <br /> Standing: 1 <br /> Team: Manchester City","Season: 2022 <br /> Payroll: $287,000,606.00 <br /> Standing: 1 <br /> Team: Bayern Munich","Season: 2022 <br /> Payroll: $133,970,796.00 <br /> Standing: 2 <br /> Team: Dortmund","Season: 2022 <br /> Payroll: $102,151,090.00 <br /> Standing: 3 <br /> Team: RB Leipzig","Season: 2022 <br /> Payroll: $22,339,400.00 <br /> Standing: 4 <br /> Team: Union Berlin","Season: 2021 <br /> Payroll: $243,170,244.00 <br /> Standing: 1 <br /> Team: Bayern Munich","Season: 2021 <br /> Payroll: $91,995,216.00 <br /> Standing: 2 <br /> Team: Dortmund","Season: 2021 <br /> Payroll: $52,779,797.00 <br /> Standing: 3 <br /> Team: Leverkusen","Season: 2021 <br /> Payroll: $55,052,414.00 <br /> Standing: 4 <br /> Team: RB Leipzig","Season: 2020 <br /> Payroll: $228,861,912.00 <br /> Standing: 1 <br /> Team: Bayern Munich","Season: 2020 <br /> Payroll: $92,056,361.00 <br /> Standing: 3 <br /> Team: Dortmund","Season: 2020 <br /> Payroll: $54,899,548.00 <br /> Standing: 2 <br /> Team: RB Leipzig","Season: 2020 <br /> Payroll: $58,975,995.00 <br /> Standing: 4 <br /> Team: Wolfsburg","Season: 2019 <br /> Payroll: $218,212,198.00 <br /> Standing: 1 <br /> Team: Bayern Munich","Season: 2019 <br /> Payroll: $108,861,513.00 <br /> Standing: 2 <br /> Team: Dortmund","Season: 2019 <br /> Payroll: $55,082,988.00 <br /> Standing: 4 <br /> Team: M'Gladbach","Season: 2019 <br /> Payroll: $72,091,964.00 <br /> Standing: 3 <br /> Team: RB Leipzig","Season: 2018 <br /> Payroll: $197,705,635.00 <br /> Standing: 1 <br /> Team: Bayern Munich","Season: 2018 <br /> Payroll: $98,399,310.00 <br /> Standing: 2 <br /> Team: Dortmund","Season: 2018 <br /> Payroll: $63,293,461.00 <br /> Standing: 4 <br /> Team: Leverkusen","Season: 2018 <br /> Payroll: $55,774,453.00 <br /> Standing: 3 <br /> Team: RB Leipzig","Season: 2017 <br /> Payroll: $185,051,324.00 <br /> Standing: 1 <br /> Team: Bayern Munich","Season: 2017 <br /> Payroll: $84,471,113.00 <br /> Standing: 4 <br /> Team: Dortmund","Season: 2017 <br /> Payroll: $39,546,630.00 <br /> Standing: 3 <br /> Team: Hoffenheim","Season: 2017 <br /> Payroll: $42,474,540.00 <br /> Standing: 2 <br /> Team: Schalke 04","Season: 2016 <br /> Payroll: $164,596,729.00 <br /> Standing: 1 <br /> Team: Bayern Munich","Season: 2016 <br /> Payroll: $75,886,115.00 <br /> Standing: 3 <br /> Team: Dortmund","Season: 2016 <br /> Payroll: $30,333,860.00 <br /> Standing: 4 <br /> Team: Hoffenheim","Season: 2016 <br /> Payroll: $27,503,785.00 <br /> Standing: 2 <br /> Team: RB Leipzig","Season: 2015 <br /> Payroll: $137,237,655.00 <br /> Standing: 1 <br /> Team: Bayern Munich","Season: 2015 <br /> Payroll: $55,087,063.00 <br /> Standing: 2 <br /> Team: Dortmund","Season: 2015 <br /> Payroll: $32,338,452.00 <br /> Standing: 3 <br /> Team: Leverkusen","Season: 2015 <br /> Payroll: $30,599,845.00 <br /> Standing: 4 <br /> Team: M'Gladbach","Season: 2014 <br /> Payroll: $120,336,711.00 <br /> Standing: 1 <br /> Team: Bayern Munich","Season: 2014 <br /> Payroll: $32,706,352.00 <br /> Standing: 4 <br /> Team: Leverkusen","Season: 2014 <br /> Payroll: $27,182,768.00 <br /> Standing: 3 <br /> Team: M'Gladbach","Season: 2014 <br /> Payroll: $58,350,259.00 <br /> Standing: 2 <br /> Team: Wolfsburg","Season: 2013 <br /> Payroll: $118,063,068.00 <br /> Standing: 1 <br /> Team: Bayern Munich","Season: 2013 <br /> Payroll: $56,291,655.00 <br /> Standing: 2 <br /> Team: Dortmund","Season: 2013 <br /> Payroll: $39,811,597.00 <br /> Standing: 4 <br /> Team: Leverkusen","Season: 2013 <br /> Payroll: $59,339,815.00 <br /> Standing: 3 <br /> Team: Schalke 04","Season: 2022 <br /> Payroll: $165,364,046.00 <br /> Standing: 3 <br /> Team: Atlético Madrid","Season: 2022 <br /> Payroll: $293,605,104.00 <br /> Standing: 1 <br /> Team: Barcelona","Season: 2022 <br /> Payroll: $318,142,363.00 <br /> Standing: 2 <br /> Team: Real Madrid","Season: 2022 <br /> Payroll: $47,106,283.00 <br /> Standing: 4 <br /> Team: Real Sociedad","Season: 2021 <br /> Payroll: $170,527,961.00 <br /> Standing: 3 <br /> Team: Atlético Madrid","Season: 2021 <br /> Payroll: $257,575,384.00 <br /> Standing: 2 <br /> Team: Barcelona","Season: 2021 <br /> Payroll: $328,755,245.00 <br /> Standing: 1 <br /> Team: Real Madrid","Season: 2021 <br /> Payroll: $101,136,644.00 <br /> Standing: 4 <br /> Team: Sevilla","Season: 2020 <br /> Payroll: $173,646,443.00 <br /> Standing: 1 <br /> Team: Atlético Madrid","Season: 2020 <br /> Payroll: $358,605,024.00 <br /> Standing: 3 <br /> Team: Barcelona","Season: 2020 <br /> Payroll: $320,296,616.00 <br /> Standing: 2 <br /> Team: Real Madrid","Season: 2020 <br /> Payroll: $95,276,751.00 <br /> Standing: 4 <br /> Team: Sevilla","Season: 2019 <br /> Payroll: $168,662,987.00 <br /> Standing: 3 <br /> Team: Atlético Madrid","Season: 2019 <br /> Payroll: $351,440,667.00 <br /> Standing: 2 <br /> Team: Barcelona","Season: 2019 <br /> Payroll: $363,007,586.00 <br /> Standing: 1 <br /> Team: Real Madrid","Season: 2019 <br /> Payroll: $66,762,006.00 <br /> Standing: 4 <br /> Team: Sevilla","Season: 2018 <br /> Payroll: $206,488,336.00 <br /> Standing: 2 <br /> Team: Atlético Madrid","Season: 2018 <br /> Payroll: $273,055,692.00 <br /> Standing: 1 <br /> Team: Barcelona","Season: 2018 <br /> Payroll: $236,713,149.00 <br /> Standing: 3 <br /> Team: Real Madrid","Season: 2018 <br /> Payroll: $77,065,227.00 <br /> Standing: 4 <br /> Team: Valencia","Season: 2017 <br /> Payroll: $100,431,417.00 <br /> Standing: 2 <br /> Team: Atlético Madrid","Season: 2017 <br /> Payroll: $248,123,125.00 <br /> Standing: 1 <br /> Team: Barcelona","Season: 2017 <br /> Payroll: $209,320,446.00 <br /> Standing: 3 <br /> Team: Real Madrid","Season: 2017 <br /> Payroll: $61,940,590.00 <br /> Standing: 4 <br /> Team: Valencia","Season: 2016 <br /> Payroll: $88,259,149.00 <br /> Standing: 3 <br /> Team: Atlético Madrid","Season: 2016 <br /> Payroll: $234,306,007.00 <br /> Standing: 2 <br /> Team: Barcelona","Season: 2016 <br /> Payroll: $204,242,215.00 <br /> Standing: 1 <br /> Team: Real Madrid","Season: 2016 <br /> Payroll: $71,484,568.00 <br /> Standing: 4 <br /> Team: Sevilla","Season: 2015 <br /> Payroll: $64,153,080.00 <br /> Standing: 3 <br /> Team: Atlético Madrid","Season: 2015 <br /> Payroll: $177,354,988.00 <br /> Standing: 1 <br /> Team: Barcelona","Season: 2015 <br /> Payroll: $154,153,893.00 <br /> Standing: 2 <br /> Team: Real Madrid","Season: 2015 <br /> Payroll: $21,367,714.00 <br /> Standing: 4 <br /> Team: Villarreal","Season: 2014 <br /> Payroll: $60,352,816.00 <br /> Standing: 3 <br /> Team: Atlético Madrid","Season: 2014 <br /> Payroll: $165,266,288.00 <br /> Standing: 1 <br /> Team: Barcelona","Season: 2014 <br /> Payroll: $156,306,257.00 <br /> Standing: 2 <br /> Team: Real Madrid","Season: 2014 <br /> Payroll: $30,892,333.00 <br /> Standing: 4 <br /> Team: Valencia","Season: 2013 <br /> Payroll: $18,914,714.00 <br /> Standing: 4 <br /> Team: Athletic Club","Season: 2013 <br /> Payroll: $49,607,301.00 <br /> Standing: 1 <br /> Team: Atlético Madrid","Season: 2013 <br /> Payroll: $181,661,754.00 <br /> Standing: 2 <br /> Team: Barcelona","Season: 2013 <br /> Payroll: $138,301,612.00 <br /> Standing: 3 <br /> Team: Real Madrid","Season: 2022 <br /> Payroll: $12,246,760.00 <br /> Standing: 2 <br /> Team: Lens","Season: 2022 <br /> Payroll: $74,902,052.00 <br /> Standing: 3 <br /> Team: Marseille","Season: 2022 <br /> Payroll: $395,384,417.00 <br /> Standing: 1 <br /> Team: Paris S-G","Season: 2022 <br /> Payroll: $33,984,757.00 <br /> Standing: 4 <br /> Team: Rennes","Season: 2021 <br /> Payroll: $56,774,712.00 <br /> Standing: 2 <br /> Team: Marseille","Season: 2021 <br /> Payroll: $53,849,858.00 <br /> Standing: 3 <br /> Team: Monaco","Season: 2021 <br /> Payroll: $440,969,630.00 <br /> Standing: 1 <br /> Team: Paris S-G","Season: 2021 <br /> Payroll: $24,377,150.00 <br /> Standing: 4 <br /> Team: Rennes","Season: 2020 <br /> Payroll: $27,801,367.00 <br /> Standing: 1 <br /> Team: Lille","Season: 2020 <br /> Payroll: $56,489,360.00 <br /> Standing: 4 <br /> Team: Lyon","Season: 2020 <br /> Payroll: $61,054,978.00 <br /> Standing: 3 <br /> Team: Monaco","Season: 2020 <br /> Payroll: $247,175,346.00 <br /> Standing: 2 <br /> Team: Paris S-G","Season: 2019 <br /> Payroll: $31,898,198.00 <br /> Standing: 4 <br /> Team: Lille","Season: 2019 <br /> Payroll: $50,293,161.00 <br /> Standing: 2 <br /> Team: Marseille","Season: 2019 <br /> Payroll: $245,901,458.00 <br /> Standing: 1 <br /> Team: Paris S-G","Season: 2019 <br /> Payroll: $36,005,216.00 <br /> Standing: 3 <br /> Team: Rennes","Season: 2018 <br /> Payroll: $28,493,341.00 <br /> Standing: 2 <br /> Team: Lille","Season: 2018 <br /> Payroll: $49,038,638.00 <br /> Standing: 3 <br /> Team: Lyon","Season: 2018 <br /> Payroll: $204,733,422.00 <br /> Standing: 1 <br /> Team: Paris S-G","Season: 2018 <br /> Payroll: $23,534,345.00 <br /> Standing: 4 <br /> Team: Saint-Étienne","Season: 2017 <br /> Payroll: $37,781,525.00 <br /> Standing: 3 <br /> Team: Lyon","Season: 2017 <br /> Payroll: $53,281,198.00 <br /> Standing: 4 <br /> Team: Marseille","Season: 2017 <br /> Payroll: $69,656,287.00 <br /> Standing: 2 <br /> Team: Monaco","Season: 2017 <br /> Payroll: $206,435,344.00 <br /> Standing: 1 <br /> Team: Paris S-G","Season: 2016 <br /> Payroll: $39,195,038.00 <br /> Standing: 4 <br /> Team: Lyon","Season: 2016 <br /> Payroll: $41,102,814.00 <br /> Standing: 1 <br /> Team: Monaco","Season: 2016 <br /> Payroll: $18,773,056.00 <br /> Standing: 3 <br /> Team: Nice","Season: 2016 <br /> Payroll: $127,344,124.00 <br /> Standing: 2 <br /> Team: Paris S-G","Season: 2015 <br /> Payroll: $35,218,462.00 <br /> Standing: 2 <br /> Team: Lyon","Season: 2015 <br /> Payroll: $31,961,380.00 <br /> Standing: 3 <br /> Team: Monaco","Season: 2015 <br /> Payroll: $10,165,641.00 <br /> Standing: 4 <br /> Team: Nice","Season: 2015 <br /> Payroll: $110,149,669.00 <br /> Standing: 1 <br /> Team: Paris S-G","Season: 2014 <br /> Payroll: $27,232,703.00 <br /> Standing: 2 <br /> Team: Lyon","Season: 2014 <br /> Payroll: $21,081,346.00 <br /> Standing: 4 <br /> Team: Marseille","Season: 2014 <br /> Payroll: $26,487,732.00 <br /> Standing: 3 <br /> Team: Monaco","Season: 2014 <br /> Payroll: $87,257,361.00 <br /> Standing: 1 <br /> Team: Paris S-G","Season: 2013 <br /> Payroll: $19,778,920.00 <br /> Standing: 3 <br /> Team: Lille","Season: 2013 <br /> Payroll: $49,735,710.00 <br /> Standing: 2 <br /> Team: Monaco","Season: 2013 <br /> Payroll: $85,930,481.00 <br /> Standing: 1 <br /> Team: Paris S-G","Season: 2013 <br /> Payroll: $19,107,325.00 <br /> Standing: 4 <br /> Team: Saint-Étienne","Season: 2022 <br /> Payroll: $146,698,674.00 <br /> Standing: 3 <br /> Team: Inter","Season: 2022 <br /> Payroll: $72,780,740.00 <br /> Standing: 2 <br /> Team: Lazio","Season: 2022 <br /> Payroll: $91,139,939.00 <br /> Standing: 4 <br /> Team: Milan","Season: 2022 <br /> Payroll: $75,739,644.00 <br /> Standing: 1 <br /> Team: Napoli","Season: 2021 <br /> Payroll: $156,372,498.00 <br /> Standing: 2 <br /> Team: Inter","Season: 2021 <br /> Payroll: $184,408,264.00 <br /> Standing: 4 <br /> Team: Juventus","Season: 2021 <br /> Payroll: $89,263,995.00 <br /> Standing: 1 <br /> Team: Milan","Season: 2021 <br /> Payroll: $105,416,919.00 <br /> Standing: 3 <br /> Team: Napoli","Season: 2020 <br /> Payroll: $45,014,164.00 <br /> Standing: 3 <br /> Team: Atalanta","Season: 2020 <br /> Payroll: $141,534,233.00 <br /> Standing: 1 <br /> Team: Inter","Season: 2020 <br /> Payroll: $220,260,613.00 <br /> Standing: 4 <br /> Team: Juventus","Season: 2020 <br /> Payroll: $85,951,884.00 <br /> Standing: 2 <br /> Team: Milan","Season: 2019 <br /> Payroll: $37,523,695.00 <br /> Standing: 3 <br /> Team: Atalanta","Season: 2019 <br /> Payroll: $118,848,807.00 <br /> Standing: 2 <br /> Team: Inter","Season: 2019 <br /> Payroll: $260,423,805.00 <br /> Standing: 1 <br /> Team: Juventus","Season: 2019 <br /> Payroll: $65,335,254.00 <br /> Standing: 4 <br /> Team: Lazio","Season: 2018 <br /> Payroll: $39,629,172.00 <br /> Standing: 3 <br /> Team: Atalanta","Season: 2018 <br /> Payroll: $120,793,266.00 <br /> Standing: 4 <br /> Team: Inter","Season: 2018 <br /> Payroll: $241,842,338.00 <br /> Standing: 1 <br /> Team: Juventus","Season: 2018 <br /> Payroll: $96,761,594.00 <br /> Standing: 2 <br /> Team: Napoli","Season: 2017 <br /> Payroll: $78,903,702.00 <br /> Standing: 4 <br /> Team: Inter","Season: 2017 <br /> Payroll: $143,995,386.00 <br /> Standing: 1 <br /> Team: Juventus","Season: 2017 <br /> Payroll: $79,226,760.00 <br /> Standing: 2 <br /> Team: Napoli","Season: 2017 <br /> Payroll: $74,892,476.00 <br /> Standing: 3 <br /> Team: Roma","Season: 2016 <br /> Payroll: $22,874,979.00 <br /> Standing: 4 <br /> Team: Atalanta","Season: 2016 <br /> Payroll: $115,615,162.00 <br /> Standing: 1 <br /> Team: Juventus","Season: 2016 <br /> Payroll: $71,552,854.00 <br /> Standing: 3 <br /> Team: Napoli","Season: 2016 <br /> Payroll: $85,207,924.00 <br /> Standing: 2 <br /> Team: Roma","Season: 2015 <br /> Payroll: $57,877,393.00 <br /> Standing: 4 <br /> Team: Inter","Season: 2015 <br /> Payroll: $89,251,765.00 <br /> Standing: 1 <br /> Team: Juventus","Season: 2015 <br /> Payroll: $53,123,235.00 <br /> Standing: 2 <br /> Team: Napoli","Season: 2015 <br /> Payroll: $70,531,701.00 <br /> Standing: 3 <br /> Team: Roma","Season: 2014 <br /> Payroll: $46,152,509.00 <br /> Standing: 4 <br /> Team: Fiorentina","Season: 2014 <br /> Payroll: $73,759,224.00 <br /> Standing: 1 <br /> Team: Juventus","Season: 2014 <br /> Payroll: $33,986,355.00 <br /> Standing: 3 <br /> Team: Lazio","Season: 2014 <br /> Payroll: $76,339,617.00 <br /> Standing: 2 <br /> Team: Roma","Season: 2013 <br /> Payroll: $53,535,974.00 <br /> Standing: 4 <br /> Team: Fiorentina","Season: 2013 <br /> Payroll: $82,943,461.00 <br /> Standing: 1 <br /> Team: Juventus","Season: 2013 <br /> Payroll: $52,276,352.00 <br /> Standing: 3 <br /> Team: Napoli","Season: 2013 <br /> Payroll: $63,471,293.00 <br /> Standing: 2 <br /> Team: Roma"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,191,196,1)","opacity":0.5,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,191,196,1)"}},"hoveron":"points","name":"TRUE","legendgroup":"TRUE","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":43.762557077625573,"r":7.3059360730593621,"b":40.182648401826498,"l":95.707762557077658},"plot_bgcolor":"rgba(235,235,235,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"title":{"text":"Payroll of Top Four vs Bottom Three Teams in Each Season","font":{"color":"rgba(0,0,0,1)","family":"","size":17.534246575342465},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[2012.55,2022.45],"tickmode":"array","ticktext":["2015.0","2017.5","2020.0"],"tickvals":[2015,2017.5,2020],"categoryorder":"array","categoryarray":["2015.0","2017.5","2020.0"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"Season","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-17136871.300000001,462784225.30000001],"tickmode":"array","ticktext":["$0","$100,000,000","$200,000,000","$300,000,000","$400,000,000"],"tickvals":[0,100000000,200000000,300000000,400000000],"categoryorder":"array","categoryarray":["$0","$100,000,000","$200,000,000","$300,000,000","$400,000,000"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"Payroll","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498},"title":{"text":"Top Four","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"1374a54d88820":{"x":{},"y":{},"colour":{},"text":{},"type":"scatter"}},"cur_data":"1374a54d88820","visdat":{"1374a54d88820":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
