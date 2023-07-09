@@ -41,26 +41,14 @@ fit_1 <- stan_glm(Standing ~ Rk,
                   family = gaussian,
                   refresh = 0)
 
-fit_2 <- stan_glm(Standing ~ annual,
-                  data = x,
-                  family = gaussian,
-                  refresh = 0)
-
-fit_3 <- stan_glm(Standing ~ Rk + annual,
-                  data = x,
-                  family = gaussian,
-                  refresh = 0)
-
 ```
 
 ```{r}
 fit_1
-fit_2
-fit_3
 ```
 ```{r}
 loo(fit_1)
-loo_compare(loo(fit_1), loo(fit_2), loo(fit_3))
+loo(fit_2)
 ```
 
 
@@ -105,10 +93,16 @@ x |>
        subtitle = "The league has steadily spent more money on players",
        y= "Total Paid") +
   scale_y_continuous(labels = scales::dollar_format())
-  scale_x_continuous(breaks = seq(2013, 2022, by = 1))
+  scale_x_continuous(breaks = seq(2013, 2022, by = 1), limits = c(2013, 2022))
 ```
 
 ```{r}
 summary(fit_1)
+```
+
+```{r}
+prem |>
+  filter(Rk == 1) |>
+  select(Squad, Season, Standing)
 ```
 

@@ -1,0 +1,89 @@
+---
+title: "bundesliga"
+editor: visual
+---
+```{r}
+library(readxl)
+library(tidyverse)
+library(writexl)
+library(stringr)
+library(rstanarm)
+```
+
+```{r}
+bundesliga <- read_excel("Bundesliga_Payroll.xlsx")
+```
+
+```{r}
+y <- bundesliga |>
+  select("Season", "Rk", "Squad", "Annual Wages", "Standing") |>
+  mutate(annual = str_extract(`Annual Wages`, "\\$[0-9,]+")) |>
+  mutate(annual = as.numeric(gsub("[$,]", "", annual))) |>
+  select(-`Annual Wages`)
+```
+
+```{r}
+y
+```
+```{r}
+y_1 <- y |>
+  summarise(.by = Season, Rk = Rk, Squad = Squad, Standing = Standing, annual = annual, percent = annual/sum(annual))
+```
+
+
+
+```{r}
+fit_2 <- stan_glm(Standing ~ Rk,
+                  data = y,
+                  family = gaussian,
+                  refresh = 0)
+
+fit_3 <- stan_glm(Standing ~ Rk + percent,
+                  data = y_1,
+                  family = gaussian,
+                  refresh = 0)
+
+```
+
+```{r}
+fit_2
+fit_3
+```
+
+```{r}
+loo_compare(loo(fit_2), loo(fit_3))
+```
+
+
+```{r}
+newobs <- tibble(Rk = 1:20)
+
+pe_2 <- posterior_epred(fit_2, newdata = newobs) |> 
+  as_tibble() |>
+  pivot_longer(cols = `1`:`20`,
+               names_to = "rank",
+               values_to = "standing") 
+pe_2 |>
+  ggplot(aes(x = rank, y = standing)) +
+  geom_point(alpha = 0.5) 
+  
+
+pe_2
+```
+
+```{r}
+y |>
+  ggplot(aes(x = Rk, y = Standing)) +
+  geom_jitter(alpha = 0.5) +
+  scale_x_reverse() +
+  scale_y_reverse() +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(title = "Payroll Rank vs. Season Standing in the Bundesliga",
+       subtitle = "There is a positive correlation between the two",
+       x = "Payroll Rank",
+       y = "Season Standing")
+```
+
+
+
+
