@@ -8,6 +8,7 @@ library(tidyverse)
 library(writexl)
 library(stringr)
 library(rstanarm)
+library(ggplot2)
 ```
 
 ```{r}
@@ -62,7 +63,9 @@ pe_2 <- posterior_epred(fit_2, newdata = newobs) |>
   as_tibble() |>
   pivot_longer(cols = `1`:`20`,
                names_to = "rank",
-               values_to = "standing") 
+               values_to = "standing") |>
+  mutate_all(as.numeric)
+
 pe_2 |>
   ggplot(aes(x = rank, y = standing)) +
   geom_point(alpha = 0.5) 
@@ -75,15 +78,36 @@ pe_2
 y |>
   ggplot(aes(x = Rk, y = Standing)) +
   geom_jitter(alpha = 0.5) +
-  scale_x_reverse() +
-  scale_y_reverse() +
+  scale_x_reverse(breaks = seq(20, 1, by = -1)) +
+  scale_y_reverse(breaks = seq(20, 1, by = -1)) +
   geom_smooth(method = "lm", se = FALSE) +
   labs(title = "Payroll Rank vs. Season Standing in the Bundesliga",
        subtitle = "There is a positive correlation between the two",
        x = "Payroll Rank",
-       y = "Season Standing")
+       y = "Season Standing") +
+  theme_classic()
+```
+```{r}
+top5 <- read_excel("Top5Leagues_Payroll.xlsx")
+top5
 ```
 
+```{r}
+a <- top5 |>
+  select(-c("# Pl", "Weekly Wages", "% Estimated", "Squad (again)")) |>
+  mutate(annual = str_extract(`Annual Wages`, "\\$[0-9,]+")) |>
+  mutate(annual = as.numeric(gsub("[$,]", "", annual))) |>
+  select(-`Annual Wages`) |>
+  filter(Season >= 2013) |>
+  summarise(.by = c(League, Season), total = sum(annual))
+  
+```
 
+```{r}
+a |>
+  ggplot(aes(x = Season, y = total, color = League)) +
+  geom_point() +
+  geom_line() 
+```
 
 

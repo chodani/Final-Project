@@ -59,10 +59,12 @@ pe <- posterior_epred(fit_1, newdata = newobs) |>
   as_tibble() |>
   pivot_longer(cols = `1`:`20`,
                names_to = "rank",
-               values_to = "standing") 
+               values_to = "standing") |>
+    mutate_all(as.numeric) 
+
 pe |>
   ggplot(aes(x = rank, y = standing)) +
-  geom_point(alpha = 0.5) 
+  geom_point(alpha = 0.25) 
   
 
 pe
@@ -85,6 +87,12 @@ x |>
 
 ```{r}
 x |>
+  summarise(.by = Season, total = sum(annual))
+```
+
+
+```{r}
+x |>
   summarise(.by = Season, total = sum(annual)) |>
   ggplot(aes(x = Season, y = total)) +
   geom_point() +
@@ -93,7 +101,7 @@ x |>
        subtitle = "The league has steadily spent more money on players",
        y= "Total Paid") +
   scale_y_continuous(labels = scales::dollar_format())
-  scale_x_continuous(breaks = seq(2013, 2022, by = 1), limits = c(2013, 2022))
+  scale_x_continuous(breaks = seq(2013, 2022, by = 1))
 ```
 
 ```{r}
