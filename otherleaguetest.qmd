@@ -8,7 +8,9 @@ library(tidyverse)
 library(writexl)
 library(stringr)
 library(rstanarm)
-library(ggplot2)
+library(ggthemes)
+library(plotly)
+library(formattable)
 ```
 
 ```{r}
@@ -75,7 +77,7 @@ pe_2
 ```
 
 ```{r}
-y |>
+y_1 <- y |>
   ggplot(aes(x = Rk, y = Standing)) +
   geom_jitter(alpha = 0.5) +
   scale_x_reverse(breaks = seq(20, 1, by = -1)) +
@@ -84,9 +86,15 @@ y |>
   labs(title = "Payroll Rank vs. Season Standing in the Bundesliga",
        subtitle = "There is a positive correlation between the two",
        x = "Payroll Rank",
-       y = "Season Standing") +
-  theme_classic()
+       y = "Season Standing") 
 ```
+
+```{r}
+y_1 |>
+  ggplotly()
+```
+
+
 ```{r}
 top5 <- read_excel("Top5Leagues_Payroll.xlsx")
 top5
@@ -107,7 +115,35 @@ a <- top5 |>
 a |>
   ggplot(aes(x = Season, y = total, color = League)) +
   geom_point() +
-  geom_line() 
+  geom_line() +
+  theme_classic()
+```
+```{r}
+b <- top5 |>
+  select(-c("# Pl", "Weekly Wages", "% Estimated", "Squad (again)")) |>
+  mutate(annual = str_extract(`Annual Wages`, "\\$[0-9,]+")) |>
+  mutate(annual = as.numeric(gsub("[$,]", "", annual))) |>
+  select(-`Annual Wages`) |>
+  filter(Season >= 2013, Standing <= 4 | Standing >= 18) |>
+  mutate(top = Standing <= 4)
 ```
 
+```{r}
+c <- b |>
+  ggplot(aes(x = Season, y = annual, color = top, text = paste("Season:", Season, "\n", 
+                                                               "Payroll:", currency(annual), "\n",
+                                                               "Standing:", Standing, "\n",
+                                                               "Team:", Squad))) +
+  geom_point(alpha = 0.5) +
+  scale_y_continuous(labels = scales::dollar_format()) +
+  labs(title = "Payroll of Top Four vs Bottom Three Teams in Each Season",
+       subtitle = "The payroll gap of top from bottom has steadily increased",
+       y = "Payroll",
+       color = "Top Four")
+```
+
+```{r}
+c |>
+  ggplotly(tooltip = "text")
+```
 
